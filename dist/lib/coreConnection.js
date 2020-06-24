@@ -371,7 +371,8 @@ class CoreConnection extends events_1.EventEmitter {
             name: this._coreOptions.deviceName,
             connectionId: this.ddp.connectionId,
             parentDeviceId: (this._parent && this._parent.deviceId) || undefined,
-            versions: this._coreOptions.versions
+            versions: this._coreOptions.versions,
+            configManifest: this._coreOptions.configManifest
         };
         this._sentConnectionId = options.connectionId;
         return this.callMethod(corePeripherals_1.PeripheralDeviceAPI.methods.initialize, [options]);

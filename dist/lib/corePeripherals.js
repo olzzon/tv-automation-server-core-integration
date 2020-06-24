@@ -1,8 +1,8 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * Note: This file contains a copy of the typings from meteor/lib/api/peripheralDevice.ts in Core
  */
-Object.defineProperty(exports, "__esModule", { value: true });
 var PeripheralDeviceAPI;
 (function (PeripheralDeviceAPI) {
     let StatusCode;
@@ -27,6 +27,9 @@ var PeripheralDeviceAPI;
         DeviceCategory["PLAYOUT"] = "playout";
         DeviceCategory["MEDIA_MANAGER"] = "media_manager";
     })(DeviceCategory = PeripheralDeviceAPI.DeviceCategory || (PeripheralDeviceAPI.DeviceCategory = {}));
+    /**
+     * Deprecated and should not be used in new integrations.
+     */
     let DeviceType;
     (function (DeviceType) {
         // Ingest devices:

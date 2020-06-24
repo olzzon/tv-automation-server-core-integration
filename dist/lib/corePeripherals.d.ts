@@ -1,3 +1,4 @@
+import { DeviceConfigManifest } from './configManifest';
 /**
  * Note: This file contains a copy of the typings from meteor/lib/api/peripheralDevice.ts in Core
  */
@@ -25,6 +26,9 @@ export declare namespace PeripheralDeviceAPI {
         PLAYOUT = "playout",
         MEDIA_MANAGER = "media_manager"
     }
+    /**
+     * Deprecated and should not be used in new integrations.
+     */
     enum DeviceType {
         MOS = "mos",
         SPREADSHEET = "spreadsheet",
@@ -32,7 +36,7 @@ export declare namespace PeripheralDeviceAPI {
         PLAYOUT = "playout",
         MEDIA_MANAGER = "media_manager"
     }
-    type DeviceSubType = SUBTYPE_PROCESS | TSR_DeviceType | MOS_DeviceType | Spreadsheet_DeviceType;
+    type DeviceSubType = SUBTYPE_PROCESS | TSR_DeviceType | MOS_DeviceType | Spreadsheet_DeviceType | string;
     /** SUBTYPE_PROCESS means that the device is NOT a sub-device, but a (parent) process. */
     type SUBTYPE_PROCESS = '_process';
     const SUBTYPE_PROCESS: SUBTYPE_PROCESS;
@@ -41,14 +45,15 @@ export declare namespace PeripheralDeviceAPI {
     type TSR_DeviceType = number;
     interface InitOptions {
         category: DeviceCategory;
-        type: DeviceType;
-        subType: DeviceSubType;
+        type?: DeviceType | string;
+        subType?: DeviceSubType;
         name: string;
         connectionId: string;
         parentDeviceId?: string;
         versions?: {
             [libraryName: string]: string;
         };
+        configManifest?: DeviceConfigManifest;
     }
     type TimelineTriggerTimeResult = Array<{
         id: string;

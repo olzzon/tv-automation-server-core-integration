@@ -3,19 +3,21 @@ import { EventEmitter } from 'events';
 import { DDPConnector, DDPConnectorOptions, Observer } from './ddpConnector';
 import { PeripheralDeviceAPI as P, PeripheralDeviceAPI } from './corePeripherals';
 import { Queue } from './queue';
+import { DeviceConfigManifest } from './configManifest';
 export interface CoreCredentials {
     deviceId: string;
     deviceToken: string;
 }
 export interface CoreOptions extends CoreCredentials {
     deviceCategory: P.DeviceCategory;
-    deviceType: P.DeviceType;
-    deviceSubType: P.DeviceSubType;
+    deviceType?: P.DeviceType | string;
+    deviceSubType?: P.DeviceSubType;
     deviceName: string;
     versions?: {
         [libraryName: string]: string;
     };
     watchDog?: boolean;
+    configManifest?: DeviceConfigManifest;
 }
 export interface CollectionObj {
     _id: string;
