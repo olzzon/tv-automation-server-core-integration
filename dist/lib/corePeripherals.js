@@ -94,6 +94,7 @@ var PeripheralDeviceAPI;
         methods["resyncRundown"] = "peripheralDevice.mos.roResync";
         methods["getMediaObjectRevisions"] = "peripheralDevice.mediaScanner.getMediaObjectRevisions";
         methods["updateMediaObject"] = "peripheralDevice.mediaScanner.updateMediaObject";
+        methods["clearMediaObjectCollection"] = "peripheralDevice.mediaScanner.clearMediaObjectCollection";
         methods["getMediaWorkFlowRevisions"] = "peripheralDevice.mediaManager.getMediaWorkFlowRevisions";
         methods["updateMediaWorkFlow"] = "peripheralDevice.mediaManager.updateMediaWorkFlow";
         methods["getMediaWorkFlowStepRevisions"] = "peripheralDevice.mediaManager.getMediaWorkFlowStepRevisions";

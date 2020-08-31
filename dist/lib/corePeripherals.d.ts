@@ -122,6 +122,7 @@ export declare namespace PeripheralDeviceAPI {
         'resyncRundown' = "peripheralDevice.mos.roResync",
         'getMediaObjectRevisions' = "peripheralDevice.mediaScanner.getMediaObjectRevisions",
         'updateMediaObject' = "peripheralDevice.mediaScanner.updateMediaObject",
+        'clearMediaObjectCollection' = "peripheralDevice.mediaScanner.clearMediaObjectCollection",
         'getMediaWorkFlowRevisions' = "peripheralDevice.mediaManager.getMediaWorkFlowRevisions",
         'updateMediaWorkFlow' = "peripheralDevice.mediaManager.updateMediaWorkFlow",
         'getMediaWorkFlowStepRevisions' = "peripheralDevice.mediaManager.getMediaWorkFlowStepRevisions",
