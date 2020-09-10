@@ -16,6 +16,7 @@ class WatchDog extends events_1.EventEmitter {
         this._dieTimeout = null;
         this._watching = false;
         this._checkFunctions = [];
+        this._runningChecks = false;
         this.timeout = _timeout || 60 * 1000;
     }
     startWatching() {
@@ -41,6 +42,11 @@ class WatchDog extends events_1.EventEmitter {
         if (i !== -1)
             this._checkFunctions.splice(i, 1);
     }
+    receivedData() {
+        if (this._watching && !this._runningChecks) {
+            this._watch();
+        }
+    }
     _everythingIsOk() {
         if (this._watching) {
             this._watch();
@@ -52,6 +58,7 @@ class WatchDog extends events_1.EventEmitter {
         if (this._checkTimeout)
             clearTimeout(this._checkTimeout);
         this._checkTimeout = setTimeout(() => {
+            this._runningChecks = true;
             Promise.all(_.map(this._checkFunctions, (fcn) => {
                 return fcn();
             }))
@@ -59,6 +66,7 @@ class WatchDog extends events_1.EventEmitter {
                 // console.log('all promises have resolved')
                 // all promises have resolved
                 this._everythingIsOk();
+                this._runningChecks = false;
             })
                 .catch(() => {
                 // do nothing, the die-timeout will trigger soon

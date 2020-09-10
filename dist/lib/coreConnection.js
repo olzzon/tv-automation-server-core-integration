@@ -104,6 +104,10 @@ class CoreConnection extends events_1.EventEmitter {
                     if (this._watchDog)
                         this._watchDog.removeCheck(() => this._watchDogCheck());
                 });
+                this._ddp.on('message', () => {
+                    if (this._watchDog)
+                        this._watchDog.receivedData();
+                });
                 resolve();
             }).then(() => {
                 return this._ddp.createClient();

@@ -13,11 +13,13 @@ export declare class WatchDog extends EventEmitter {
     private _dieTimeout;
     private _watching;
     private _checkFunctions;
+    private _runningChecks;
     constructor(_timeout?: number);
     startWatching(): void;
     stopWatching(): void;
     addCheck(fcn: () => Promise<any>): void;
     removeCheck(fcn: () => Promise<any>): void;
+    receivedData(): void;
     private _everythingIsOk;
     private _watch;
 }
