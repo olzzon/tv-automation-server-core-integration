@@ -90,6 +90,7 @@ var PeripheralDeviceAPI;
         methods["dataSegmentDelete"] = "peripheralDevice.rundown.segmentDelete";
         methods["dataSegmentCreate"] = "peripheralDevice.rundown.segmentCreate";
         methods["dataSegmentUpdate"] = "peripheralDevice.rundown.segmentUpdate";
+        methods["dataSegmentRanksUpdate"] = "peripheralDevice.rundown.segmentRanksUpdate";
         methods["dataPartDelete"] = "peripheralDevice.rundown.partDelete";
         methods["dataPartCreate"] = "peripheralDevice.rundown.partCreate";
         methods["dataPartUpdate"] = "peripheralDevice.rundown.partUpdate";
